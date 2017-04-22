@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="dancekvartalApp.student.detail.title">Student</span> {{vm.student.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="dancekvartalApp.student.active">Active</span></dt>
+        <dd>
+            <span>{{vm.student.active}}</span>
+        </dd>
+        <dt><span data-translate="dancekvartalApp.student.user">User</span></dt>
+        <dd>
+            {{vm.student.userId}}
+        </dd>
+        <dt><span data-translate="dancekvartalApp.student.person">Person</span></dt>
+        <dd>
+            <a ui-sref="person-fe-detail({id:vm.student.personId})">{{vm.student.personId}}</a>
+        </dd>
+        <dt><span data-translate="dancekvartalApp.student.parent">Parent</span></dt>
+        <dd>
+            <a ui-sref="parent-fe-detail({id:vm.student.parentId})">{{vm.student.parentId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="student-fe-detail.edit({id:vm.student.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

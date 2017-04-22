@@ -1,0 +1,64 @@
+<div>
+    <h2 data-translate="dancekvartalApp.teacher.home.title">Teachers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="teacher-fe.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="dancekvartalApp.teacher.home.createLabel">
+                        Create new Teacher
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="active"><span data-translate="dancekvartalApp.teacher.active">Active</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="userId"><span data-translate="dancekvartalApp.teacher.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="personId"><span data-translate="dancekvartalApp.teacher.person">Person</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="teacher in vm.teachers track by teacher.id">
+                    <td><a ui-sref="teacher-fe-detail({id:teacher.id})">{{teacher.id}}</a></td>
+                    <td>{{teacher.active}}</td>
+                    <td>
+                        {{teacher.userId}}
+                    </td>
+                    <td>
+                        <a ui-sref="person-fe-detail({id:teacher.personId})">{{teacher.personId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="teacher-fe-detail({id:teacher.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="teacher-fe.edit({id:teacher.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="teacher-fe.delete({id:teacher.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
