@@ -2,7 +2,10 @@ package com.dancekvartal.webapp.service.dto;
 
 
 import java.time.ZonedDateTime;
+import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -15,6 +18,10 @@ public class LessonDTO implements Serializable {
     private ZonedDateTime startLesson;
 
     private ZonedDateTime endLesson;
+
+    private Long teacherId;
+
+    private Set<StudentDTO> students = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -36,6 +43,22 @@ public class LessonDTO implements Serializable {
 
     public void setEndLesson(ZonedDateTime endLesson) {
         this.endLesson = endLesson;
+    }
+
+    public Long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public Set<StudentDTO> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<StudentDTO> students) {
+        this.students = students;
     }
 
     @Override

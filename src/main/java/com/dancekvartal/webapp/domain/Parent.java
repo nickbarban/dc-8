@@ -1,9 +1,12 @@
 package com.dancekvartal.webapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -32,6 +35,10 @@ public class Parent implements Serializable {
     @NotNull
     @JoinColumn(unique = true)
     private Person person;
+
+    @OneToMany(mappedBy = "parent")
+    @JsonIgnore
+    private Set<Student> children = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -78,6 +85,31 @@ public class Parent implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public Set<Student> getChildren() {
+        return children;
+    }
+
+    public Parent children(Set<Student> students) {
+        this.children = students;
+        return this;
+    }
+
+    public Parent addChildren(Student student) {
+        this.children.add(student);
+        student.setParent(this);
+        return this;
+    }
+
+    public Parent removeChildren(Student student) {
+        this.children.remove(student);
+        student.setParent(null);
+        return this;
+    }
+
+    public void setChildren(Set<Student> students) {
+        this.children = students;
     }
 
     @Override

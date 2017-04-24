@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular
@@ -24,7 +24,7 @@
 
         loadAll();
 
-        function loadAll() {
+        function loadAll () {
             Student.query({
                 page: vm.page,
                 size: vm.itemsPerPage,
@@ -51,7 +51,7 @@
             }
         }
 
-        function reset() {
+        function reset () {
             vm.page = 0;
             vm.students = [];
             loadAll();
@@ -61,12 +61,5 @@
             vm.page = page;
             loadAll();
         }
-
-        /*vm.calculateAge = function calculateAge(birthday) { // birthday is a date
-            console.log(birthday);
-            var ageDifMs = Date.now() - birthday.getTime();
-            var ageDate = new Date(ageDifMs); // miliseconds from epoch
-            return Math.abs(ageDate.getUTCFullYear() - 1970);
-        }*/
     }
 })();

@@ -2,8 +2,11 @@ package com.dancekvartal.webapp.domain;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -25,6 +28,16 @@ public class Lesson implements Serializable {
 
     @Column(name = "end_lesson")
     private ZonedDateTime endLesson;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Teacher teacher;
+
+    @ManyToMany
+    @JoinTable(name = "lesson_students",
+               joinColumns = @JoinColumn(name="lessons_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="students_id", referencedColumnName="id"))
+    private Set<Student> students = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -58,6 +71,44 @@ public class Lesson implements Serializable {
 
     public void setEndLesson(ZonedDateTime endLesson) {
         this.endLesson = endLesson;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public Lesson teacher(Teacher teacher) {
+        this.teacher = teacher;
+        return this;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public Lesson students(Set<Student> students) {
+        this.students = students;
+        return this;
+    }
+
+    public Lesson addStudents(Student student) {
+        this.students.add(student);
+        student.getLessons().add(this);
+        return this;
+    }
+
+    public Lesson removeStudents(Student student) {
+        this.students.remove(student);
+        student.getLessons().remove(this);
+        return this;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 
     @Override

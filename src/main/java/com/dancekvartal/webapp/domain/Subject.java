@@ -1,10 +1,13 @@
 package com.dancekvartal.webapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -35,6 +38,13 @@ public class Subject implements Serializable {
     @NotNull
     @Column(name = "price", precision=10, scale=2, nullable = false)
     private BigDecimal price;
+
+    @ManyToOne
+    private Teacher teacher;
+
+    @ManyToMany(mappedBy = "subjects")
+    @JsonIgnore
+    private Set<Student> students = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -94,6 +104,44 @@ public class Subject implements Serializable {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public Subject teacher(Teacher teacher) {
+        this.teacher = teacher;
+        return this;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public Subject students(Set<Student> students) {
+        this.students = students;
+        return this;
+    }
+
+    public Subject addStudents(Student student) {
+        this.students.add(student);
+        student.getSubjects().add(this);
+        return this;
+    }
+
+    public Subject removeStudents(Student student) {
+        this.students.remove(student);
+        student.getSubjects().remove(this);
+        return this;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 
     @Override

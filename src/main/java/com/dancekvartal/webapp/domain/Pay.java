@@ -28,10 +28,9 @@ public class Pay implements Serializable {
     @Column(name = "sum", precision=10, scale=2)
     private BigDecimal sum;
 
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     @NotNull
-    @JoinColumn(unique = true)
-    private Person user;
+    private Person person;
 
     public Long getId() {
         return id;
@@ -67,17 +66,17 @@ public class Pay implements Serializable {
         this.sum = sum;
     }
 
-    public Person getUser() {
-        return user;
+    public Person getPerson() {
+        return person;
     }
 
-    public Pay user(Person person) {
-        this.user = person;
+    public Pay person(Person person) {
+        this.person = person;
         return this;
     }
 
-    public void setUser(Person person) {
-        this.user = person;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     @Override

@@ -19,10 +19,26 @@
             "otherEntityRelationshipName": "student"
         },
         {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "students",
+            "relationshipName": "subjects",
+            "otherEntityName": "subject",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
             "relationshipType": "many-to-one",
             "relationshipName": "parent",
             "otherEntityName": "parent",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "lessons",
+            "otherEntityName": "lesson",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "students"
         }
     ],
     "fields": [

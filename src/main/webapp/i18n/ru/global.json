@@ -79,10 +79,15 @@
             }
         },
         "field": {
-            "id" : "ID"
+            "id": "ID",
+            "address": "Адрес",
+            "phones": "Телефоны",
+            "user": "Пользователь",
+            "active": "Активен",
+            "age": "Возраст"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev": "Development"
         }
     },
     "entity": {

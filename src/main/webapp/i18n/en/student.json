@@ -1,6 +1,6 @@
 {
     "dancekvartalApp": {
-        "student": {
+        "student" : {
             "home": {
                 "title": "Students",
                 "createLabel": "Create a new Student",
@@ -18,10 +18,9 @@
             "active": "Active",
             "user": "User",
             "person": "Person",
+            "subjects": "Subjects",
             "parent": "Parent",
-            "age": "Age",
-            "address": "Address",
-            "phones": "Phones"
+            "lessons": "Lessons"
         }
     }
 }

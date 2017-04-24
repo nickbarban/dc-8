@@ -17,7 +17,7 @@
             },
             "date": "Date",
             "sum": "Sum",
-            "user": "User"
+            "person": "Person"
         }
     }
 }

@@ -2,13 +2,11 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipValidateRules": "required",
-            "relationshipName": "user",
+            "relationshipName": "person",
             "otherEntityName": "person",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "pay"
+            "otherEntityField": "id"
         }
     ],
     "fields": [

@@ -96,10 +96,10 @@ public class PayResourceIntTest {
             .date(DEFAULT_DATE)
             .sum(DEFAULT_SUM);
         // Add required entity
-        Person user = PersonResourceIntTest.createEntity(em);
-        em.persist(user);
+        Person person = PersonResourceIntTest.createEntity(em);
+        em.persist(person);
         em.flush();
-        pay.setUser(user);
+        pay.setPerson(person);
         return pay;
     }
 

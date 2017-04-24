@@ -9,13 +9,16 @@ import java.util.List;
 /**
  * Mapper for the entity Subject and its DTO SubjectDTO.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {TeacherMapper.class, })
 public interface SubjectMapper {
 
+    @Mapping(source = "teacher.id", target = "teacherId")
     SubjectDTO subjectToSubjectDTO(Subject subject);
 
     List<SubjectDTO> subjectsToSubjectDTOs(List<Subject> subjects);
 
+    @Mapping(source = "teacherId", target = "teacher")
+    @Mapping(target = "students", ignore = true)
     Subject subjectDTOToSubject(SubjectDTO subjectDTO);
 
     List<Subject> subjectDTOsToSubjects(List<SubjectDTO> subjectDTOs);

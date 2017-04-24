@@ -12,12 +12,12 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {PersonMapper.class, })
 public interface PayMapper {
 
-    @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "person.id", target = "personId")
     PayDTO payToPayDTO(Pay pay);
 
     List<PayDTO> paysToPayDTOs(List<Pay> pays);
 
-    @Mapping(source = "userId", target = "user")
+    @Mapping(source = "personId", target = "person")
     Pay payDTOToPay(PayDTO payDTO);
 
     List<Pay> payDTOsToPays(List<PayDTO> payDTOs);

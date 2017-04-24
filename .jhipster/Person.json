@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pays",
+            "otherEntityName": "pay",
+            "otherEntityRelationshipName": "person"
+        }
+    ],
     "fields": [
         {
             "fieldName": "firstname",

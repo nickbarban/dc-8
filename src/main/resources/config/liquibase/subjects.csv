@@ -1,0 +1,6 @@
+id;name;description;active;price;teacher_id
+1;Hip-Hop;Hip Hop dance is great fun but very hard work if you want to dance well;true;10;null
+2;Belly;Belly dance is an expressive dance which emphasizes complex movements of the torso;true;15;null
+3;Contemporary;Contemporary dance is a dance performance genre that has become one of the dominant genres for formally trained dancers throughout the world;true;15;null
+4;Jazz-Funk;Jazz-funk (also called street-jazz) is a hybrid of hip-hop and jazz dance;true;10;null
+

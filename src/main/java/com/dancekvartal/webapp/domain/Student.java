@@ -1,9 +1,12 @@
 package com.dancekvartal.webapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -33,8 +36,19 @@ public class Student implements Serializable {
     @JoinColumn(unique = true)
     private Person person;
 
+    @ManyToMany
+    @NotNull
+    @JoinTable(name = "student_subjects",
+               joinColumns = @JoinColumn(name="students_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="subjects_id", referencedColumnName="id"))
+    private Set<Subject> subjects = new HashSet<>();
+
     @ManyToOne
     private Parent parent;
+
+    @ManyToMany(mappedBy = "students")
+    @JsonIgnore
+    private Set<Lesson> lessons = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -83,6 +97,31 @@ public class Student implements Serializable {
         this.person = person;
     }
 
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public Student subjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+        return this;
+    }
+
+    public Student addSubjects(Subject subject) {
+        this.subjects.add(subject);
+        subject.getStudents().add(this);
+        return this;
+    }
+
+    public Student removeSubjects(Subject subject) {
+        this.subjects.remove(subject);
+        subject.getStudents().remove(this);
+        return this;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
+
     public Parent getParent() {
         return parent;
     }
@@ -94,6 +133,31 @@ public class Student implements Serializable {
 
     public void setParent(Parent parent) {
         this.parent = parent;
+    }
+
+    public Set<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public Student lessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
+        return this;
+    }
+
+    public Student addLessons(Lesson lesson) {
+        this.lessons.add(lesson);
+        lesson.getStudents().add(this);
+        return this;
+    }
+
+    public Student removeLessons(Lesson lesson) {
+        this.lessons.remove(lesson);
+        lesson.getStudents().remove(this);
+        return this;
+    }
+
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
     }
 
     @Override

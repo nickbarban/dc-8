@@ -5,9 +5,9 @@
         .module('dancekvartalApp')
         .controller('LessonFeDialogController', LessonFeDialogController);
 
-    LessonFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Lesson'];
+    LessonFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Lesson', 'Teacher', 'Student'];
 
-    function LessonFeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Lesson) {
+    function LessonFeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Lesson, Teacher, Student) {
         var vm = this;
 
         vm.lesson = entity;
@@ -15,6 +15,8 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
+        vm.teachers = Teacher.query();
+        vm.students = Student.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

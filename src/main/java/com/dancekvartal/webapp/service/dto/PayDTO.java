@@ -19,7 +19,7 @@ public class PayDTO implements Serializable {
 
     private BigDecimal sum;
 
-    private Long userId;
+    private Long personId;
 
     public Long getId() {
         return id;
@@ -43,12 +43,12 @@ public class PayDTO implements Serializable {
         this.sum = sum;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setUserId(Long personId) {
-        this.userId = personId;
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
     @Override

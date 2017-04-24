@@ -1,9 +1,12 @@
 package com.dancekvartal.webapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -32,6 +35,14 @@ public class Teacher implements Serializable {
     @NotNull
     @JoinColumn(unique = true)
     private Person person;
+
+    @OneToMany(mappedBy = "teacher")
+    @JsonIgnore
+    private Set<Subject> subjects = new HashSet<>();
+
+    @OneToMany(mappedBy = "teacher")
+    @JsonIgnore
+    private Set<Lesson> lessons = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -78,6 +89,56 @@ public class Teacher implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public Teacher subjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+        return this;
+    }
+
+    public Teacher addSubjects(Subject subject) {
+        this.subjects.add(subject);
+        subject.setTeacher(this);
+        return this;
+    }
+
+    public Teacher removeSubjects(Subject subject) {
+        this.subjects.remove(subject);
+        subject.setTeacher(null);
+        return this;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
+
+    public Set<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public Teacher lessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
+        return this;
+    }
+
+    public Teacher addLessons(Lesson lesson) {
+        this.lessons.add(lesson);
+        lesson.setTeacher(this);
+        return this;
+    }
+
+    public Teacher removeLessons(Lesson lesson) {
+        this.lessons.remove(lesson);
+        lesson.setTeacher(null);
+        return this;
+    }
+
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
     }
 
     @Override

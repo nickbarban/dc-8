@@ -17,7 +17,9 @@
             },
             "active": "Active",
             "user": "User",
-            "person": "Person"
+            "person": "Person",
+            "subjects": "Subjects",
+            "lessons": "Lessons"
         }
     }
 }

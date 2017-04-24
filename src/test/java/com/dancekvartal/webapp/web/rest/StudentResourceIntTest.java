@@ -4,6 +4,7 @@ import com.dancekvartal.webapp.DancekvartalApp;
 
 import com.dancekvartal.webapp.domain.Student;
 import com.dancekvartal.webapp.domain.Person;
+import com.dancekvartal.webapp.domain.Subject;
 import com.dancekvartal.webapp.repository.StudentRepository;
 import com.dancekvartal.webapp.service.StudentService;
 import com.dancekvartal.webapp.service.dto.StudentDTO;
@@ -93,6 +94,11 @@ public class StudentResourceIntTest {
         em.persist(person);
         em.flush();
         student.setPerson(person);
+        // Add required entity
+        Subject subjects = SubjectResourceIntTest.createEntity(em);
+        em.persist(subjects);
+        em.flush();
+        student.getSubjects().add(subjects);
         return student;
     }
 

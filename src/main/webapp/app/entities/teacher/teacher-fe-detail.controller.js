@@ -5,9 +5,9 @@
         .module('dancekvartalApp')
         .controller('TeacherFeDetailController', TeacherFeDetailController);
 
-    TeacherFeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Teacher', 'User', 'Person'];
+    TeacherFeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Teacher', 'User', 'Person', 'Subject', 'Lesson'];
 
-    function TeacherFeDetailController($scope, $rootScope, $stateParams, previousState, entity, Teacher, User, Person) {
+    function TeacherFeDetailController($scope, $rootScope, $stateParams, previousState, entity, Teacher, User, Person, Subject, Lesson) {
         var vm = this;
 
         vm.teacher = entity;

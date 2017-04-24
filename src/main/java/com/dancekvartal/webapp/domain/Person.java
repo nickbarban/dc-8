@@ -1,10 +1,13 @@
 package com.dancekvartal.webapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -50,6 +53,10 @@ public class Person implements Serializable {
 
     @Column(name = "photo_url")
     private String photoUrl;
+
+    @OneToMany(mappedBy = "person")
+    @JsonIgnore
+    private Set<Pay> pays = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -161,6 +168,31 @@ public class Person implements Serializable {
 
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
+    }
+
+    public Set<Pay> getPays() {
+        return pays;
+    }
+
+    public Person pays(Set<Pay> pays) {
+        this.pays = pays;
+        return this;
+    }
+
+    public Person addPays(Pay pay) {
+        this.pays.add(pay);
+        pay.setPerson(this);
+        return this;
+    }
+
+    public Person removePays(Pay pay) {
+        this.pays.remove(pay);
+        pay.setPerson(null);
+        return this;
+    }
+
+    public void setPays(Set<Pay> pays) {
+        this.pays = pays;
     }
 
     @Override

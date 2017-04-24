@@ -5,9 +5,9 @@
         .module('dancekvartalApp')
         .controller('TeacherFeDialogController', TeacherFeDialogController);
 
-    TeacherFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Teacher', 'User', 'Person'];
+    TeacherFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Teacher', 'User', 'Person', 'Subject', 'Lesson'];
 
-    function TeacherFeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Teacher, User, Person) {
+    function TeacherFeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Teacher, User, Person, Subject, Lesson) {
         var vm = this;
 
         vm.teacher = entity;
@@ -23,6 +23,8 @@
         }).then(function(person) {
             vm.people.push(person);
         });
+        vm.subjects = Subject.query();
+        vm.lessons = Lesson.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

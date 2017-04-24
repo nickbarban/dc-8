@@ -5,9 +5,9 @@
         .module('dancekvartalApp')
         .controller('PayFeDialogController', PayFeDialogController);
 
-    PayFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Pay', 'Person'];
+    PayFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Pay', 'Person'];
 
-    function PayFeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Pay, Person) {
+    function PayFeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Pay, Person) {
         var vm = this;
 
         vm.pay = entity;
@@ -15,15 +15,7 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
-        vm.users = Person.query({filter: 'pay-is-null'});
-        $q.all([vm.pay.$promise, vm.users.$promise]).then(function() {
-            if (!vm.pay.userId) {
-                return $q.reject();
-            }
-            return Person.get({id : vm.pay.userId}).$promise;
-        }).then(function(user) {
-            vm.users.push(user);
-        });
+        vm.people = Person.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

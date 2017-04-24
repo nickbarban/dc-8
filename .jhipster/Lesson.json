@@ -1,6 +1,22 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "teacher",
+            "otherEntityName": "teacher",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "lessons",
+            "relationshipName": "students",
+            "otherEntityName": "student",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
     "fields": [
         {
             "fieldName": "startLesson",

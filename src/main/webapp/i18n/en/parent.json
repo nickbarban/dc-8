@@ -1,6 +1,6 @@
 {
     "dancekvartalApp": {
-        "parent": {
+        "parent" : {
             "home": {
                 "title": "Parents",
                 "createLabel": "Create a new Parent",
@@ -18,8 +18,7 @@
             "active": "Active",
             "user": "User",
             "person": "Person",
-            "address": "Address",
-            "phones": "Phones"
+            "children": "Children"
         }
     }
 }

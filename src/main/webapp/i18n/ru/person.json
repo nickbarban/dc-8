@@ -22,7 +22,8 @@
             "phone1": "Phone 1",
             "phone2": "Phone 2",
             "email": "Email",
-            "photoUrl": "Photo Url"
+            "photoUrl": "Photo Url",
+            "pays": "Pays"
         }
     }
 }

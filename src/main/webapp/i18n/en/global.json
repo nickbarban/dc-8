@@ -79,10 +79,15 @@
             }
         },
         "field": {
-            "id": "ID"
+            "id": "ID",
+            "address": "Address",
+            "phones": "Phones",
+            "user": "User",
+            "active": "Active",
+            "age": "Age"
         },
         "ribbon": {
-            "dev":"Development"
+            "dev": "Development"
         }
     },
     "entity": {

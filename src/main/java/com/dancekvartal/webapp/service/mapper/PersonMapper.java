@@ -12,10 +12,12 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {})
 public interface PersonMapper {
 
+    @Mapping(target = "pays", ignore = true)
     PersonDTO personToPersonDTO(Person person);
 
     List<PersonDTO> peopleToPersonDTOs(List<Person> people);
 
+    @Mapping(target = "pays", ignore = true)
     Person personDTOToPerson(PersonDTO personDTO);
 
     List<Person> personDTOsToPeople(List<PersonDTO> personDTOs);
@@ -26,7 +28,7 @@ public interface PersonMapper {
      * @param id id of the entity
      * @return the entity instance
      */
-     
+
     default Person personFromId(Long id) {
         if (id == null) {
             return null;
@@ -35,6 +37,6 @@ public interface PersonMapper {
         person.setId(id);
         return person;
     }
-    
+
 
 }

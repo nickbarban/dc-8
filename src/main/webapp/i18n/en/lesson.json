@@ -16,7 +16,9 @@
                 "title": "Lesson"
             },
             "startLesson": "Start Lesson",
-            "endLesson": "End Lesson"
+            "endLesson": "End Lesson",
+            "teacher": "Teacher",
+            "students": "Students"
         }
     }
 }

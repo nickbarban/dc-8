@@ -20,6 +20,10 @@
         <dd>
             <span>{{vm.subject.price}}</span>
         </dd>
+        <dt><span data-translate="dancekvartalApp.subject.teacher">Teacher</span></dt>
+        <dd>
+            <a ui-sref="teacher-fe-detail({id:vm.subject.teacherId})">{{vm.subject.teacherId}}</a>
+        </dd>
     </dl>
 
     <button type="submit"

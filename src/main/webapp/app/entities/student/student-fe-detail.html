@@ -16,6 +16,12 @@
         <dd>
             <a ui-sref="person-fe-detail({id:vm.student.personId})">{{vm.student.personId}}</a>
         </dd>
+        <dt><span data-translate="dancekvartalApp.student.subjects">Subjects</span></dt>
+        <dd>
+            <span ng-repeat="subjects in vm.student.subjects">
+                <a ui-sref="subject-fe-detail({id: subjects.id})">{{subjects.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
         <dt><span data-translate="dancekvartalApp.student.parent">Parent</span></dt>
         <dd>
             <a ui-sref="parent-fe-detail({id:vm.student.parentId})">{{vm.student.parentId}}</a>

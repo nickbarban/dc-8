@@ -5,9 +5,9 @@
         .module('dancekvartalApp')
         .controller('SubjectFeDetailController', SubjectFeDetailController);
 
-    SubjectFeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Subject'];
+    SubjectFeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Subject', 'Teacher', 'Student'];
 
-    function SubjectFeDetailController($scope, $rootScope, $stateParams, previousState, entity, Subject) {
+    function SubjectFeDetailController($scope, $rootScope, $stateParams, previousState, entity, Subject, Teacher, Student) {
         var vm = this;
 
         vm.subject = entity;

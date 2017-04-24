@@ -20,6 +20,17 @@
                                  referencedColumnNames="id"
                                  referencedTableName="person"/>
 
+        <addForeignKeyConstraint baseColumnNames="students_id"
+                                 baseTableName="student_subjects"
+                                 constraintName="fk_student_subjects_students_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+        <addForeignKeyConstraint baseColumnNames="subjects_id"
+                                 baseTableName="student_subjects"
+                                 constraintName="fk_student_subjects_subjects_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="subject"/>
+        
         <addForeignKeyConstraint baseColumnNames="parent_id"
                                  baseTableName="student"
                                  constraintName="fk_student_parent_id"

@@ -1,14 +1,13 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('dancekvartalApp')
         .config(bootstrapMaterialDesignConfig);
 
-    compileServiceConfig.$inject = [];
+    bootstrapMaterialDesignConfig.$inject = [];
 
     function bootstrapMaterialDesignConfig() {
         $.material.init();
-
     }
 })();

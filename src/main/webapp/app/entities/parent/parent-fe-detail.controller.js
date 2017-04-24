@@ -5,9 +5,9 @@
         .module('dancekvartalApp')
         .controller('ParentFeDetailController', ParentFeDetailController);
 
-    ParentFeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Parent', 'User', 'Person'];
+    ParentFeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Parent', 'User', 'Person', 'Student'];
 
-    function ParentFeDetailController($scope, $rootScope, $stateParams, previousState, entity, Parent, User, Person) {
+    function ParentFeDetailController($scope, $rootScope, $stateParams, previousState, entity, Parent, User, Person, Student) {
         var vm = this;
 
         vm.parent = entity;

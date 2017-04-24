@@ -1,6 +1,20 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "teacher",
+            "otherEntityName": "teacher",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "students",
+            "otherEntityName": "student",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "subjects"
+        }
+    ],
     "fields": [
         {
             "fieldName": "name",
