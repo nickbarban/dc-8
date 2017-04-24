@@ -4,9 +4,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="student-fe.new" >
+                <button class="btn btn-primary" ui-sref="student-fe.new">
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="dancekvartalApp.student.home.createLabel">
+                    <span data-translate="dancekvartalApp.student.home.createLabel">
                         Create new Student
                     </span>
                 </button>
@@ -17,51 +17,82 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="active"><span data-translate="dancekvartalApp.student.active">Active</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="userId"><span data-translate="dancekvartalApp.student.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="personId"><span data-translate="dancekvartalApp.student.person">Person</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="parentId"><span data-translate="dancekvartalApp.student.parent">Parent</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                <th class="nowrap" jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th class="nowrap" jh-sort-by="personId"><span
+                    data-translate="dancekvartalApp.student.person">Person</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th class="nowrap" jh-sort-by="age"><span
+                    data-translate="global.field.age">Age</span><span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th class="nowrap" jh-sort-by="address"><span data-translate="global.field.address">Address</span>
+                    <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                <th class="nowrap" jh-sort-by="phones"><span
+                    data-translate="global.field.phones">Phones</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th class="nowrap" jh-sort-by="parentId"><span
+                    data-translate="dancekvartalApp.student.parent">Parent</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th class="nowrap" jh-sort-by="userId"><span data-translate="dancekvartalApp.student.user">User</span>
+                    <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                <th class="nowrap" jh-sort-by="active"><span
+                    data-translate="dancekvartalApp.student.active">Active</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
+                <th></th>
+            </tr>
             </thead>
             <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
-                <tr ng-repeat="student in vm.students track by student.id">
-                    <td><a ui-sref="student-fe-detail({id:student.id})">{{student.id}}</a></td>
-                    <td>{{student.active}}</td>
-                    <td>
-                        {{student.userId}}
-                    </td>
-                    <td>
-                        <a ui-sref="person-fe-detail({id:student.personId})">{{student.personId}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="parent-fe-detail({id:student.parentId})">{{student.parentId}}</a>
-                    </td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="student-fe-detail({id:student.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="student-fe.edit({id:student.id})"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
-                            </button>
-                            <button type="submit"
-                                    ui-sref="student-fe.delete({id:student.id})"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+            <tr ng-repeat="student in vm.students track by student.id">
+                <td class="nowrap"><a ui-sref="student-fe-detail({id:student.id})">{{student.id}}</a></td>
+                <td class="nowrap">
+                    <a ui-sref="person-fe-detail({id:student.personId})">
+                        {{student.person.firstname}} {{student.person.lastname}}
+                    </a>
+                </td>
+                <td class="nowrap">{{student.person.birthday | ageFilter}}</td>
+                <td class="nowrap">
+                    {{student.person.address}}
+                </td>
+                <td class="nowrap">
+                    <span>{{student.person.phone1}}</span>
+                    <br/>
+                    <span>{{student.person.phone2}}</span>
+                </td>
+                <td class="nowrap">
+                    <a ui-sref="parent-fe-detail({id:student.parentId})">
+                        {{student.parent.person.firstname}} {{student.parent.person.lastname}}
+                    </a>
+                </td>
+                <td class="nowrap">
+                    {{student.userId}}
+                </td>
+                <td class="nowrap">{{student.active}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                ui-sref="student-fe-detail({id:student.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="student-fe.edit({id:student.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="student-fe.delete({id:student.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

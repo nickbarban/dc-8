@@ -1,11 +1,13 @@
 package com.dancekvartal.webapp.service.dto;
 
 
-import javax.validation.constraints.*;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A DTO for the Student entity.
@@ -19,11 +21,13 @@ public class StudentDTO implements Serializable {
 
     private Long userId;
 
-    private Long personId;
+    @NotNull
+    private PersonDTO person;
 
+    @NotEmpty
     private Set<SubjectDTO> subjects = new HashSet<>();
 
-    private Long parentId;
+    private ParentDTO parent;
 
     public Long getId() {
         return id;
@@ -32,6 +36,7 @@ public class StudentDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public Boolean getActive() {
         return active;
     }
@@ -48,14 +53,6 @@ public class StudentDTO implements Serializable {
         this.userId = userId;
     }
 
-    public Long getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Long personId) {
-        this.personId = personId;
-    }
-
     public Set<SubjectDTO> getSubjects() {
         return subjects;
     }
@@ -64,12 +61,20 @@ public class StudentDTO implements Serializable {
         this.subjects = subjects;
     }
 
-    public Long getParentId() {
-        return parentId;
+    public PersonDTO getPerson() {
+        return person;
     }
 
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setPerson(PersonDTO person) {
+        this.person = person;
+    }
+
+    public ParentDTO getParent() {
+        return parent;
+    }
+
+    public void setParent(ParentDTO parent) {
+        this.parent = parent;
     }
 
     @Override
@@ -83,7 +88,9 @@ public class StudentDTO implements Serializable {
 
         StudentDTO studentDTO = (StudentDTO) o;
 
-        if ( ! Objects.equals(id, studentDTO.id)) { return false; }
+        if (!Objects.equals(id, studentDTO.id)) {
+            return false;
+        }
 
         return true;
     }
