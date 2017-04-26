@@ -1,11 +1,9 @@
 package com.dancekvartal.webapp.service.dto;
 
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -26,7 +24,7 @@ public class SubjectDTO implements Serializable {
     @NotNull
     private BigDecimal price;
 
-    private Long teacherId;
+    private TeacherDTO teacher;
 
     public Long getId() {
         return id;
@@ -35,6 +33,7 @@ public class SubjectDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -42,6 +41,7 @@ public class SubjectDTO implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getDescription() {
         return description;
     }
@@ -49,6 +49,7 @@ public class SubjectDTO implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public Boolean getActive() {
         return active;
     }
@@ -56,6 +57,7 @@ public class SubjectDTO implements Serializable {
     public void setActive(Boolean active) {
         this.active = active;
     }
+
     public BigDecimal getPrice() {
         return price;
     }
@@ -64,12 +66,12 @@ public class SubjectDTO implements Serializable {
         this.price = price;
     }
 
-    public Long getTeacherId() {
-        return teacherId;
+    public TeacherDTO getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(TeacherDTO teacher) {
+        this.teacher = teacher;
     }
 
     @Override
@@ -83,7 +85,9 @@ public class SubjectDTO implements Serializable {
 
         SubjectDTO subjectDTO = (SubjectDTO) o;
 
-        if ( ! Objects.equals(id, subjectDTO.id)) { return false; }
+        if (!Objects.equals(id, subjectDTO.id)) {
+            return false;
+        }
 
         return true;
     }

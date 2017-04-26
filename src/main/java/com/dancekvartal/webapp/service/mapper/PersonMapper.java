@@ -1,9 +1,10 @@
 package com.dancekvartal.webapp.service.mapper;
 
-import com.dancekvartal.webapp.domain.*;
+import com.dancekvartal.webapp.domain.Person;
 import com.dancekvartal.webapp.service.dto.PersonDTO;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-import org.mapstruct.*;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {})
 public interface PersonMapper {
 
-    @Mapping(target = "pays", ignore = true)
+    //    @Mapping(target = "pays", ignore = true)
     PersonDTO personToPersonDTO(Person person);
 
     List<PersonDTO> peopleToPersonDTOs(List<Person> people);
@@ -21,6 +22,7 @@ public interface PersonMapper {
     Person personDTOToPerson(PersonDTO personDTO);
 
     List<Person> personDTOsToPeople(List<PersonDTO> personDTOs);
+
     /**
      * generating the fromId for all mappers if the databaseType is sql, as the class has relationship to it might need it, instead of
      * creating a new attribute to know if the entity has any relationship from some other entity

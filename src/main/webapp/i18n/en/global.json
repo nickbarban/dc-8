@@ -84,7 +84,9 @@
             "phones": "Phones",
             "user": "User",
             "active": "Active",
-            "age": "Age"
+            "age": "Age",
+            "lessons": "Lessons",
+            "person": "Person"
         },
         "ribbon": {
             "dev": "Development"

@@ -84,7 +84,9 @@
             "phones": "Телефоны",
             "user": "Пользователь",
             "active": "Активен",
-            "age": "Возраст"
+            "age": "Возраст",
+            "lessons": "Уроки",
+            "person": "Личность"
         },
         "ribbon": {
             "dev": "Development"

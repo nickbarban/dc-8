@@ -1,10 +1,8 @@
 package com.dancekvartal.webapp.service.dto;
 
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -19,7 +17,8 @@ public class TeacherDTO implements Serializable {
 
     private Long userId;
 
-    private Long personId;
+    @NotNull
+    private PersonDTO person;
 
     public Long getId() {
         return id;
@@ -28,6 +27,7 @@ public class TeacherDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public Boolean getActive() {
         return active;
     }
@@ -44,12 +44,12 @@ public class TeacherDTO implements Serializable {
         this.userId = userId;
     }
 
-    public Long getPersonId() {
-        return personId;
+    public PersonDTO getPerson() {
+        return person;
     }
 
-    public void setPersonId(Long personId) {
-        this.personId = personId;
+    public void setPerson(PersonDTO person) {
+        this.person = person;
     }
 
     @Override
@@ -63,7 +63,9 @@ public class TeacherDTO implements Serializable {
 
         TeacherDTO teacherDTO = (TeacherDTO) o;
 
-        if ( ! Objects.equals(id, teacherDTO.id)) { return false; }
+        if (!Objects.equals(id, teacherDTO.id)) {
+            return false;
+        }
 
         return true;
     }

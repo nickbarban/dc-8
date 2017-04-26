@@ -1,25 +1,20 @@
 {
     "dancekvartalApp": {
-        "teacher" : {
+        "teacher": {
             "home": {
-                "title": "Teachers",
-                "createLabel": "Создать новый Teacher",
-                "createOrEditLabel": "Создать или отредактировать Teacher"
+                "title": "Учители",
+                "createLabel": "Создать нового Учителя",
+                "createOrEditLabel": "Создать или отредактировать Учителя"
             },
-            "created": "Новый Teacher создан с идентификатором {{ param }}",
-            "updated": "Teacher обновлен с идентификатором {{ param }}",
-            "deleted": "Teacher удален с идентификатором {{ param }}",
+            "created": "Новый Учитель создан с идентификатором {{ param }}",
+            "updated": "Учитель обновлен с идентификатором {{ param }}",
+            "deleted": "Учитель удален с идентификатором {{ param }}",
             "delete": {
-                "question": "Вы уверены что хотите удалить Teacher {{ id }}?"
+                "question": "Вы уверены что хотите удалить Учитель {{ id }}?"
             },
             "detail": {
-                "title": "Teacher"
-            },
-            "active": "Active",
-            "user": "User",
-            "person": "Person",
-            "subjects": "Subjects",
-            "lessons": "Lessons"
+                "title": "Учитель"
+            }
         }
     }
 }
