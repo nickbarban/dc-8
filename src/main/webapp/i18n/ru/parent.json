@@ -1,24 +1,20 @@
 {
     "dancekvartalApp": {
-        "parent" : {
+        "parent": {
             "home": {
-                "title": "Parents",
-                "createLabel": "Создать новый Parent",
-                "createOrEditLabel": "Создать или отредактировать Parent"
+                "title": "Родители",
+                "createLabel": "Создать нового Родителя",
+                "createOrEditLabel": "Создать или отредактировать Родителя"
             },
-            "created": "Новый Parent создан с идентификатором {{ param }}",
-            "updated": "Parent обновлен с идентификатором {{ param }}",
-            "deleted": "Parent удален с идентификатором {{ param }}",
+            "created": "Новый Родитель создан с идентификатором {{ param }}",
+            "updated": "Родитель обновлен с идентификатором {{ param }}",
+            "deleted": "Родитель удален с идентификатором {{ param }}",
             "delete": {
-                "question": "Вы уверены что хотите удалить Parent {{ id }}?"
+                "question": "Вы уверены что хотите удалить Родителя {{ id }}?"
             },
             "detail": {
-                "title": "Parent"
-            },
-            "active": "Active",
-            "user": "User",
-            "person": "Person",
-            "children": "Children"
+                "title": "Родитель"
+            }
         }
     }
 }

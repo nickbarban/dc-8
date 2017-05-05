@@ -46,10 +46,7 @@
         },
         {
             "fieldName": "phone2",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "String"
         },
         {
             "fieldName": "email",

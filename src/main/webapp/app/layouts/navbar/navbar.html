@@ -32,48 +32,48 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active">
+                        <!--<li ui-sref-active="active">
                                 <a ui-sref="person-fe" ng-click="vm.collapseNavbar()">
                                     <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                     <span data-translate="global.menu.entities.personFe">Person Fe</span>
                                 </a>
-                            </li>
+                            </li>-->
                         <li ui-sref-active="active">
-                                <a ui-sref="parent-fe" ng-click="vm.collapseNavbar()">
-                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                    <span data-translate="global.menu.entities.parentFe">Parent Fe</span>
-                                </a>
-                            </li>
+                            <a ui-sref="parent-fe" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.parentFe">Parent Fe</span>
+                            </a>
+                        </li>
                         <li ui-sref-active="active">
-                                <a ui-sref="student-fe" ng-click="vm.collapseNavbar()">
-                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                    <span data-translate="global.menu.entities.studentFe">Student Fe</span>
-                                </a>
-                            </li>
+                            <a ui-sref="student-fe" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.studentFe">Student Fe</span>
+                            </a>
+                        </li>
                         <li ui-sref-active="active">
-                                <a ui-sref="teacher-fe" ng-click="vm.collapseNavbar()">
-                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                    <span data-translate="global.menu.entities.teacherFe">Teacher Fe</span>
-                                </a>
-                            </li>
+                            <a ui-sref="teacher-fe" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.teacherFe">Teacher Fe</span>
+                            </a>
+                        </li>
                         <li ui-sref-active="active">
-                                <a ui-sref="subject-fe" ng-click="vm.collapseNavbar()">
-                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                    <span data-translate="global.menu.entities.subjectFe">Subject Fe</span>
-                                </a>
-                            </li>
+                            <a ui-sref="subject-fe" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.subjectFe">Subject Fe</span>
+                            </a>
+                        </li>
                         <li ui-sref-active="active">
-                                <a ui-sref="lesson-fe" ng-click="vm.collapseNavbar()">
-                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                    <span data-translate="global.menu.entities.lessonFe">Lesson Fe</span>
-                                </a>
-                            </li>
+                            <a ui-sref="lesson-fe" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.lessonFe">Lesson Fe</span>
+                            </a>
+                        </li>
                         <li ui-sref-active="active">
-                                <a ui-sref="pay-fe" ng-click="vm.collapseNavbar()">
-                                    <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                                    <span data-translate="global.menu.entities.payFe">Pay Fe</span>
-                                </a>
-                            </li>
+                            <a ui-sref="pay-fe" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.payFe">Pay Fe</span>
+                            </a>
+                        </li>
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>
@@ -120,7 +120,8 @@
                         </li>
                     </ul>
                 </li>
-                <li ng-class="{active: vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown dropdown>
+                <li ng-class="{active: vm.$state.includes('admin')}" ng-switch-when="true" has-authority="ROLE_ADMIN"
+                    uib-dropdown dropdown>
                     <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
                         <span>
                             <span class="glyphicon glyphicon-tower"></span>
@@ -184,7 +185,8 @@
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu ng-if="languageVm.languages.length > 1">
                         <li active-menu="{{language}}" ng-repeat="language in languageVm.languages">
-                            <a href="" ng-click="languageVm.changeLanguage(language);vm.collapseNavbar();">{{language | findLanguageFromKey}}</a>
+                            <a href="" ng-click="languageVm.changeLanguage(language);vm.collapseNavbar();">{{language |
+                                findLanguageFromKey}}</a>
                         </li>
                     </ul>
                 </li>

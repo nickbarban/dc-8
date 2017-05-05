@@ -1,26 +1,20 @@
 {
     "dancekvartalApp": {
-        "student" : {
+        "student": {
             "home": {
-                "title": "Students",
-                "createLabel": "Создать новый Student",
-                "createOrEditLabel": "Создать или отредактировать Student"
+                "title": "Ученики",
+                "createLabel": "Создать нового Ученика",
+                "createOrEditLabel": "Создать или отредактировать Ученика"
             },
-            "created": "Новый Student создан с идентификатором {{ param }}",
-            "updated": "Student обновлен с идентификатором {{ param }}",
-            "deleted": "Student удален с идентификатором {{ param }}",
+            "created": "Новый Ученик создан с идентификатором {{ param }}",
+            "updated": "Ученик обновлен с идентификатором {{ param }}",
+            "deleted": "Ученик удален с идентификатором {{ param }}",
             "delete": {
-                "question": "Вы уверены что хотите удалить Student {{ id }}?"
+                "question": "Вы уверены что хотите удалить Ученика {{ id }}?"
             },
             "detail": {
-                "title": "Student"
-            },
-            "active": "Active",
-            "user": "User",
-            "person": "Person",
-            "subjects": "Subjects",
-            "parent": "Parent",
-            "lessons": "Lessons"
+                "title": "Ученик"
+            }
         }
     }
 }

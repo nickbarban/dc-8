@@ -86,7 +86,17 @@
             "active": "Active",
             "age": "Age",
             "lessons": "Lessons",
-            "person": "Person"
+            "person": "Person",
+            "firstname": "Firstname",
+            "lastname": "Lastname",
+            "birthday": "Birthday",
+            "phone1": "Phone 1",
+            "phone2": "Phone 2",
+            "email": "Email",
+            "photoUrl": "Photo Url",
+            "pays": "Pays",
+            "parent": "Parent",
+            "subjects": "Subjects"
         },
         "ribbon": {
             "dev": "Development"

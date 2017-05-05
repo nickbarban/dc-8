@@ -2,13 +2,20 @@ package com.dancekvartal.webapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Person.
@@ -44,8 +51,7 @@ public class Person implements Serializable {
     @Column(name = "phone_1", nullable = false)
     private String phone1;
 
-    @NotNull
-    @Column(name = "phone_2", nullable = false)
+    @Column(name = "phone_2")
     private String phone2;
 
     @Column(name = "email")

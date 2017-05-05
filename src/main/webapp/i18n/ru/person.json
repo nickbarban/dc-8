@@ -1,29 +1,29 @@
 {
     "dancekvartalApp": {
-        "person" : {
+        "person": {
             "home": {
-                "title": "People",
-                "createLabel": "Создать новый Person",
-                "createOrEditLabel": "Создать или отредактировать Person"
+                "title": "Личности",
+                "createLabel": "Создать новую Личность",
+                "createOrEditLabel": "Создать или отредактировать Личность"
             },
-            "created": "Новый Person создан с идентификатором {{ param }}",
-            "updated": "Person обновлен с идентификатором {{ param }}",
-            "deleted": "Person удален с идентификатором {{ param }}",
+            "created": "Новая Личность создана с идентификатором {{ param }}",
+            "updated": "Личность обновлена с идентификатором {{ param }}",
+            "deleted": "Личность удалена с идентификатором {{ param }}",
             "delete": {
-                "question": "Вы уверены что хотите удалить Person {{ id }}?"
+                "question": "Вы уверены что хотите удалить Личность {{ id }}?"
             },
             "detail": {
-                "title": "Person"
+                "title": "Личность"
             },
-            "firstname": "Firstname",
-            "lastname": "Lastname",
-            "birthday": "Birthday",
-            "address": "Address",
-            "phone1": "Phone 1",
-            "phone2": "Phone 2",
+            "firstname": "Имя",
+            "lastname": "Фамилия",
+            "birthday": "День рождения",
+            "address": "Адрес",
+            "phone1": "Телефон 1",
+            "phone2": "Телефон 2",
             "email": "Email",
-            "photoUrl": "Photo Url",
-            "pays": "Pays"
+            "photoUrl": "Фото Url",
+            "pays": "Оплаты"
         }
     }
 }

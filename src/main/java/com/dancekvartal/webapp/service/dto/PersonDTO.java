@@ -29,7 +29,6 @@ public class PersonDTO implements Serializable {
     @NotNull
     private String phone1;
 
-    @NotNull
     private String phone2;
 
     private String email;

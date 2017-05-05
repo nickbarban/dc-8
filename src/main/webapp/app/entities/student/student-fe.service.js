@@ -1,26 +1,27 @@
-(function() {
+(function () {
     'use strict';
     angular
         .module('dancekvartalApp')
         .factory('Student', Student);
 
-    Student.$inject = ['$resource'];
+    Student.$inject = ['$resource', 'DateUtils'];
 
-    function Student ($resource) {
-        var resourceUrl =  'api/students/:id';
+    function Student($resource, DateUtils) {
+        var resourceUrl = 'api/students/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': {method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.person.birthday = DateUtils.convertLocalDateFromServer(data.person.birthday);
                     }
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': {method: 'PUT'}
         });
     }
 })();

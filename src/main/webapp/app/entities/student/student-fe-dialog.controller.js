@@ -11,17 +11,19 @@
     function StudentFeDialogController($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Student, User,
                                        Person, Subject, Parent, Lesson) {
         var vm = this;
-
         vm.student = entity;
+        console.log("StudentFeDialogController entity.person: " + JSON.stringify(vm.student.person.birthday));
         vm.clear = clear;
+        vm.datePickerOpenStatus = {};
+        vm.openCalendar = openCalendar;
         vm.save = save;
         vm.users = User.query();
         vm.people = Person.query({filter: 'student-is-null'});
         $q.all([vm.student.$promise, vm.people.$promise]).then(function () {
-            if (!vm.student.personId) {
+            if (!vm.student.person.id) {
                 return $q.reject();
             }
-            return Person.get({id: vm.student.personId}).$promise;
+            return Person.get({id: vm.student.person.id}).$promise;
         }).then(function (person) {
             vm.people.push(person);
         });
@@ -42,9 +44,6 @@
             if (vm.student.id !== null) {
                 Student.update(vm.student, onSaveSuccess, onSaveError);
             } else {
-                /*console.log("Student's name: " + vm.student.person.firstname);
-                 console.log("Student's parent name: " + vm.student.parent.person.firstname);
-                 console.log("Student's subjects: " + vm.student.subjects);*/
                 Student.save(vm.student, onSaveSuccess, onSaveError);
             }
         }
@@ -60,6 +59,10 @@
             vm.isSaving = false;
         }
 
+        vm.datePickerOpenStatus.birthday = false;
 
+        function openCalendar(date) {
+            vm.datePickerOpenStatus[date] = true;
+        }
     }
 })();

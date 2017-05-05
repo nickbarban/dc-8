@@ -86,7 +86,17 @@
             "active": "Активен",
             "age": "Возраст",
             "lessons": "Уроки",
-            "person": "Личность"
+            "person": "Личность",
+            "firstname": "Имя",
+            "lastname": "Фамилия",
+            "birthday": "Дата рождения",
+            "phone1": "Телефон 1",
+            "phone2": "Телефон 2",
+            "email": "Email",
+            "photoUrl": "Фото Url",
+            "pays": "Плата",
+            "parent": "Родитель",
+            "subjects": "Предметы"
         },
         "ribbon": {
             "dev": "Development"

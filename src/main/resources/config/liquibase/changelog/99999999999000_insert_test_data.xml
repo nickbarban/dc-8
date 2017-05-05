@@ -21,6 +21,21 @@
                   tableName="person">
         </loadData>
         <loadData encoding="UTF-8"
+                  file="config/liquibase/parents.csv"
+                  separator=";"
+                  tableName="parent">
+        </loadData>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/students.csv"
+                  separator=";"
+                  tableName="student">
+        </loadData>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/teachers.csv"
+                  separator=";"
+                  tableName="teacher">
+        </loadData>
+        <loadData encoding="UTF-8"
                   file="config/liquibase/subjects.csv"
                   separator=";"
                   tableName="subject">
