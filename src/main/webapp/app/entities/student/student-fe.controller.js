@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -13,6 +13,11 @@
 
         vm.students = [];
         vm.loadPage = loadPage;
+        vm.usersExist = function (students) {
+            return students.some(function (student) {
+                return student.userId != null;
+            });
+        };
         vm.itemsPerPage = paginationConstants.itemsPerPage;
         vm.page = 0;
         vm.links = {
@@ -24,7 +29,7 @@
 
         loadAll();
 
-        function loadAll () {
+        function loadAll() {
             Student.query({
                 page: vm.page,
                 size: vm.itemsPerPage,
@@ -51,7 +56,7 @@
             }
         }
 
-        function reset () {
+        function reset() {
             vm.page = 0;
             vm.students = [];
             loadAll();
@@ -61,5 +66,7 @@
             vm.page = page;
             loadAll();
         }
+
+
     }
 })();

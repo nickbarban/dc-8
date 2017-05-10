@@ -96,7 +96,8 @@
             "photoUrl": "Photo Url",
             "pays": "Pays",
             "parent": "Parent",
-            "subjects": "Subjects"
+            "subjects": "Subjects",
+            "students": "Students"
         },
         "ribbon": {
             "dev": "Development"

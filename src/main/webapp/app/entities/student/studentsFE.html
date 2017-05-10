@@ -37,11 +37,12 @@
                 <th class="nowrap" jh-sort-by="parentId"><span
                     data-translate="global.field.subjects">Subjects</span> <span
                     class="glyphicon glyphicon-sort"></span></th>
-                <!-- <th class="nowrap" jh-sort-by="userId"><span data-translate="global.field.user">User</span>
-                     <span class="glyphicon glyphicon-sort"></span></th>
-                 <th class="nowrap" jh-sort-by="active"><span
-                     data-translate="global.field.active">Active</span> <span
-                     class="glyphicon glyphicon-sort"></span></th>-->
+                <th class="nowrap" jh-sort-by="userId">
+                    <div ng-show="vm.usersExist(vm.students)">
+                        <span data-translate="global.field.user">User</span>
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </div>
+                </th>
                 <th></th>
             </tr>
             </thead>
@@ -69,35 +70,37 @@
                 </td>
                 <td class="nowrap">
                     <div ng-repeat="subject in student.subjects">
-                        <span class="label label-info">{{ student.subject.name }}</span>
+                        <!--<span class="label label-info">{{ student.subject.name }}</span>-->
+                        <a ui-sref="subject-fe-detail({id:student.subject.id})">
+                            {{subject.name}}
+                        </a>
                     </div>
                     <!--<a ui-sref="subject-fe-detail({id:student.subject.id})">
                         {{student.parent.person.firstname}} {{student.parent.person.lastname}}
                     </a>-->
                 </td>
-                <!-- <td class="nowrap">
-                     {{student.userId}}
-                 </td>
-                 <td class="nowrap">{{student.active}}</td>-->
+                <td>
+                    {{student.userId}}
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
                                 ui-sref="student-fe-detail({id:student.id})"
                                 class="btn btn-info btn-sm">
                             <span class="glyphicon glyphicon-eye-open"></span>
-                            <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            <!--<span class="hidden-sm-down" data-translate="entity.action.view"></span>-->
                         </button>
                         <button type="submit"
                                 ui-sref="student-fe.edit({id:student.id})"
                                 class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>
-                            <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            <!--<span class="hidden-sm-down" data-translate="entity.action.edit"></span>-->
                         </button>
                         <button type="submit"
                                 ui-sref="student-fe.delete({id:student.id})"
                                 class="btn btn-danger btn-sm">
                             <span class="glyphicon glyphicon-remove-circle"></span>
-                            <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            <!--<span class="hidden-sm-down" data-translate="entity.action.delete"></span>-->
                         </button>
                     </div>
                 </td>

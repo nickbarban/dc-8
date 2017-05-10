@@ -1,21 +1,36 @@
-
 <div>
     <h2><span data-translate="dancekvartalApp.parent.detail.title">Parent</span> {{vm.parent.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="dancekvartalApp.parent.active">Active</span></dt>
+        <!--<dt><span data-translate="dancekvartalApp.parent.active">Active</span></dt>
         <dd>
             <span>{{vm.parent.active}}</span>
-        </dd>
-        <dt><span data-translate="dancekvartalApp.parent.user">User</span></dt>
+        </dd>-->
+        <!--<dt><span data-translate="dancekvartalApp.parent.user">User</span></dt>
         <dd>
             {{vm.parent.userId}}
-        </dd>
-        <dt><span data-translate="dancekvartalApp.parent.person">Person</span></dt>
+        </dd>-->
+        <dt><span data-translate="global.field.person">Person</span></dt>
         <dd>
-            <a ui-sref="person-fe-detail({id:vm.parent.personId})">{{vm.parent.personId}}</a>
+            <a ui-sref="person-fe-detail({id:vm.parent.person.id})">
+                {{vm.parent.person.firstname}} {{vm.parent.person.lastname}}
+            </a>
         </dd>
+        <dt><span data-translate="global.field.birthday">Birthday</span></dt>
+        <dd>{{vm.parent.person.birthday}}</dd>
+        <dt><span data-translate="global.field.address">Address</span></dt>
+        <dd>{{vm.parent.person.address}}</dd>
+        <dt><span data-translate="global.field.phones">Phones</span></dt>
+        <dd>
+            <span>{{vm.parent.person.phone1}}</span>
+            <br/>
+            <span>{{vm.parent.person.phone2}}</span>
+        </dd>
+        <dt><span data-translate="global.field.email">Email</span></dt>
+        <dd>{{vm.parent.person.email}}</dd>
+        <dt><span data-translate="global.field.photoUrl">Photo</span></dt>
+        <dd><a>{{vm.parent.person.photoUrl}}</a></dd>
     </dl>
 
     <button type="submit"

@@ -1,6 +1,6 @@
 {
     "dancekvartalApp": {
-        "lesson" : {
+        "lesson": {
             "home": {
                 "title": "Lessons",
                 "createLabel": "Создать новый Lesson",
@@ -15,10 +15,10 @@
             "detail": {
                 "title": "Lesson"
             },
-            "startLesson": "Start Lesson",
-            "endLesson": "End Lesson",
-            "teacher": "Teacher",
-            "students": "Students"
+            "startLesson": "Начало урока",
+            "endLesson": "Конец урока",
+            "teacher": "Учитель",
+            "students": "Ученики"
         }
     }
 }

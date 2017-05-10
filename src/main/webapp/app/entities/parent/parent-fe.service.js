@@ -4,9 +4,9 @@
         .module('dancekvartalApp')
         .factory('Parent', Parent);
 
-    Parent.$inject = ['$resource'];
+    Parent.$inject = ['$resource', 'DateUtils'];
 
-    function Parent ($resource) {
+    function Parent ($resource, DateUtils) {
         var resourceUrl =  'api/parents/:id';
 
         return $resource(resourceUrl, {}, {
@@ -16,6 +16,7 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
+                        data.person.birthday = DateUtils.convertLocalDateFromServer(data.person.birthday);
                     }
                     return data;
                 }

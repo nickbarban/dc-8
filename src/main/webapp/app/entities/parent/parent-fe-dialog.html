@@ -13,18 +13,18 @@
             <input type="text" class="form-control" id="id" name="id"
                    ng-model="vm.parent.id" readonly/>
         </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="global.field.active"
-                   for="field_active">Active</label>
-            <input type="checkbox" name="active" id="field_active"
-                   ng-model="vm.parent.active"/>
-            <div ng-show="editForm.active.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.active.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
+        <!-- <div class="form-group">
+             <label class="control-label" data-translate="global.field.active"
+                    for="field_active">Active</label>
+             <input type="checkbox" name="active" id="field_active"
+                    ng-model="vm.parent.active"/>
+             <div ng-show="editForm.active.$invalid">
+                 <p class="help-block"
+                    ng-show="editForm.active.$error.required" data-translate="entity.validation.required">
+                     This field is required.
+                 </p>
+             </div>
+         </div>-->
 
         <div class="form-group">
             <label class="control-label" data-translate="global.field.firstname" for="field_firstname">Firstname</label>
@@ -116,27 +116,6 @@
                    ng-model="vm.parent.person.photoUrl"
             />
         </div>
-
-        <!-- <div class="form-group">
-             <label data-translate="dancekvartalApp.parent.person" for="field_person">Person</label>
-             <select class="form-control" id="field_person" name="person" ng-model="vm.parent.person"
-                     ng-options="person as person.firstname + ' ' + person.lastname for person in vm.people | orderBy:'id'"
-                     required>
-             </select>
-         </div>
-        <div ng-show="editForm.person.$invalid">
-            <p class="help-block"
-               ng-show="editForm.person.$error.required" data-translate="entity.validation.required">
-                This field is required.
-            </p>
-        </div>
-        <div ng-show="editForm.children.$invalid">
-            <p class="help-block"
-               ng-show="editForm.children.$error.required" data-translate="entity.validation.required">
-                This field is required.
-            </p>
-        </div>-->
-
         <div class="form-group">
             <label data-translate="global.field.user" for="field_user">User</label>
             <select class="form-control" id="field_user" name="user" ng-model="vm.parent.userId"
@@ -145,6 +124,7 @@
             </select>
         </div>
     </div>
+
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span

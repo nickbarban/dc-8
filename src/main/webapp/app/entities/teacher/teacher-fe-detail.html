@@ -1,20 +1,39 @@
-
 <div>
     <h2><span data-translate="dancekvartalApp.teacher.detail.title">Teacher</span> {{vm.teacher.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="dancekvartalApp.teacher.active">Active</span></dt>
+        <dt><span data-translate="global.field.firstname">Firstname</span></dt>
         <dd>
-            <span>{{vm.teacher.active}}</span>
+            <span>{{vm.teacher.person.firstname}}</span>
         </dd>
-        <dt><span data-translate="dancekvartalApp.teacher.user">User</span></dt>
+        <dt><span data-translate="global.field.lastname">Lastname</span></dt>
         <dd>
-            {{vm.teacher.userId}}
+            <span>{{vm.teacher.person.lastname}}</span>
         </dd>
-        <dt><span data-translate="dancekvartalApp.teacher.person">Person</span></dt>
+        <dt><span data-translate="global.field.birthday">Birthday</span></dt>
         <dd>
-            <a ui-sref="person-fe-detail({id:vm.teacher.personId})">{{vm.teacher.personId}}</a>
+            <span>{{vm.teacher.person.birthday | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="global.field.address">Address</span></dt>
+        <dd>
+            <span>{{vm.teacher.person.address}}</span>
+        </dd>
+        <dt><span data-translate="global.field.phone1">Phone 1</span></dt>
+        <dd>
+            <span>{{vm.teacher.person.phone1}}</span>
+        </dd>
+        <dt><span data-translate="global.field.phone2">Phone 2</span></dt>
+        <dd>
+            <span>{{vm.teacher.person.phone2}}</span>
+        </dd>
+        <dt><span data-translate="global.field.email">Email</span></dt>
+        <dd>
+            <span>{{vm.teacher.person.email}}</span>
+        </dd>
+        <dt><span data-translate="global.field.photoUrl">Photo Url</span></dt>
+        <dd>
+            <span>{{vm.teacher.person.photoUrl}}</span>
         </dd>
     </dl>
 

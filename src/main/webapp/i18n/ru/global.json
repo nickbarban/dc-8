@@ -7,13 +7,13 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Сущности",
-                "personFe": "Person",
-                "parentFe": "Parent",
-                "studentFe": "Student",
-                "teacherFe": "Teacher",
-                "subjectFe": "Subject",
-                "lessonFe": "Lesson",
-                "payFe": "Pay",
+                "personFe": "Личности",
+                "parentFe": "Родители",
+                "studentFe": "Ученики",
+                "teacherFe": "Учители",
+                "subjectFe": "Предметы",
+                "lessonFe": "Уроки",
+                "payFe": "Оплаты",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -96,7 +96,8 @@
             "photoUrl": "Фото Url",
             "pays": "Плата",
             "parent": "Родитель",
-            "subjects": "Предметы"
+            "subjects": "Предметы",
+            "students": "Ученики"
         },
         "ribbon": {
             "dev": "Development"

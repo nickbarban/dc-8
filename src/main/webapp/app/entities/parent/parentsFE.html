@@ -40,7 +40,7 @@
             <tr ng-repeat="parent in vm.parents track by parent.id">
                 <td><a ui-sref="parent-fe-detail({id:parent.id})">{{parent.id}}</a></td>
                 <td>
-                    <a ui-sref="person-fe-detail({id:parent.personId})">
+                    <a ui-sref="person-fe-detail({id:parent.person.id})">
                         {{parent.person.firstname}} {{parent.person.lastname}}
                     </a>
                 </td>
@@ -53,10 +53,6 @@
                     <br/>
                     <span>{{parent.person.phone2}}</span>
                 </td>
-               <!-- <td>
-                    {{parent.userId}}
-                </td>
-                <td>{{parent.active}}</td>-->
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
