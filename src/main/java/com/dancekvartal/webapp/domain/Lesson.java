@@ -1,13 +1,23 @@
 package com.dancekvartal.webapp.domain;
 
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Lesson.
@@ -35,9 +45,13 @@ public class Lesson implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "lesson_students",
-               joinColumns = @JoinColumn(name="lessons_id", referencedColumnName="id"),
-               inverseJoinColumns = @JoinColumn(name="students_id", referencedColumnName="id"))
+        joinColumns = @JoinColumn(name = "lessons_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "students_id", referencedColumnName = "id"))
     private Set<Student> students = new HashSet<>();
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Subject subject;
 
     public Long getId() {
         return id;
@@ -138,5 +152,13 @@ public class Lesson implements Serializable {
             ", startLesson='" + startLesson + "'" +
             ", endLesson='" + endLesson + "'" +
             '}';
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

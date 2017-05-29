@@ -13,6 +13,15 @@
             <input type="text" class="form-control" id="id" name="id"
                    ng-model="vm.lesson.id" readonly/>
         </div>
+
+        <div class="form-group">
+            <label data-translate="dancekvartalApp.lesson.subject" for="field_subject">Subject</label>
+            <select class="form-control" id="field_subject" name="subject" ng-model="vm.lesson.subject"
+                    ng-options="subject as subject.name for subject in vm.subjects"
+                    required>
+            </select>
+        </div>
+
         <div class="form-group">
             <label class="control-label" data-translate="dancekvartalApp.lesson.startLesson" for="field_startLesson">Start
                 Lesson</label>
@@ -44,8 +53,9 @@
 
         <div class="form-group">
             <label data-translate="dancekvartalApp.lesson.teacher" for="field_teacher">Teacher</label>
-            <select class="form-control" id="field_teacher" name="teacher" ng-model="vm.lesson.teacherId"
-                    ng-options="teacher.id as teacher.id for teacher in vm.teachers" required>
+            <select class="form-control" id="field_teacher" name="teacher" ng-model="vm.lesson.teacher"
+                    ng-options="teacher as teacher.person.firstname + ' ' + teacher.person.lastname for teacher in vm.teachers"
+                    required>
             </select>
         </div>
         <div ng-show="editForm.teacher.$invalid">
@@ -57,7 +67,7 @@
         <div class="form-group">
             <label data-translate="dancekvartalApp.lesson.students" for="field_students">Students</label>
             <select class="form-control" id="field_students" multiple name="students" ng-model="vm.lesson.students"
-                    ng-options="student as student.id for student in vm.students track by student.id"></select>
+                    ng-options="student as student.person.firstname + ' ' + student.person.lastname for student in vm.students track by student.id"></select>
         </div>
     </div>
     <div class="modal-footer">

@@ -1,6 +1,8 @@
 package com.dancekvartal.webapp.service.dto;
 
 
+import com.dancekvartal.webapp.domain.Subject;
+
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
@@ -21,6 +23,8 @@ public class LessonDTO implements Serializable {
     private TeacherDTO teacher;
 
     private Set<StudentDTO> students = new HashSet<>();
+
+    private Subject subject;
 
     public Long getId() {
         return id;
@@ -92,5 +96,13 @@ public class LessonDTO implements Serializable {
             ", startLesson='" + startLesson + "'" +
             ", endLesson='" + endLesson + "'" +
             '}';
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

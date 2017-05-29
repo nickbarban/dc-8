@@ -1,13 +1,13 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('dancekvartalApp')
         .controller('LessonFeDialogController', LessonFeDialogController);
 
-    LessonFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Lesson', 'Teacher', 'Student'];
+    LessonFeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Lesson', 'Teacher', 'Student', 'Subject'];
 
-    function LessonFeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Lesson, Teacher, Student) {
+    function LessonFeDialogController($timeout, $scope, $stateParams, $uibModalInstance, entity, Lesson, Teacher, Student, Subject) {
         var vm = this;
 
         vm.lesson = entity;
@@ -16,17 +16,18 @@
         vm.openCalendar = openCalendar;
         vm.save = save;
         vm.teachers = Teacher.query();
+        vm.subjects = Subject.query();
         vm.students = Student.query();
 
-        $timeout(function (){
+        $timeout(function () {
             angular.element('.form-group:eq(1)>input').focus();
         });
 
-        function clear () {
+        function clear() {
             $uibModalInstance.dismiss('cancel');
         }
 
-        function save () {
+        function save() {
             vm.isSaving = true;
             if (vm.lesson.id !== null) {
                 Lesson.update(vm.lesson, onSaveSuccess, onSaveError);
@@ -35,20 +36,20 @@
             }
         }
 
-        function onSaveSuccess (result) {
+        function onSaveSuccess(result) {
             $scope.$emit('dancekvartalApp:lessonUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }
 
-        function onSaveError () {
+        function onSaveError() {
             vm.isSaving = false;
         }
 
         vm.datePickerOpenStatus.startLesson = false;
         vm.datePickerOpenStatus.endLesson = false;
 
-        function openCalendar (date) {
+        function openCalendar(date) {
             vm.datePickerOpenStatus[date] = true;
         }
     }

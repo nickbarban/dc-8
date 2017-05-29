@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Mapper for the entity Lesson and its DTO LessonDTO.
  */
-@Mapper(componentModel = "spring", uses = {TeacherMapper.class, StudentMapper.class,})
+@Mapper(componentModel = "spring", uses = {TeacherMapper.class, StudentMapper.class, SubjectMapper.class})
 public interface LessonMapper {
 
     LessonDTO lessonToLessonDTO(Lesson lesson);

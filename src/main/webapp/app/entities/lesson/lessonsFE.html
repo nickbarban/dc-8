@@ -20,6 +20,8 @@
             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
                 <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span
                     class="glyphicon glyphicon-sort"></span></th>
+                <th jh-sort-by="id"><span data-translate="dancekvartalApp.lesson.subject">Subject</span> <span
+                    class="glyphicon glyphicon-sort"></span></th>
                 <th jh-sort-by="startLesson"><span
                     data-translate="dancekvartalApp.lesson.startLesson">Start Lesson</span> <span
                     class="glyphicon glyphicon-sort"></span></th>
@@ -35,6 +37,11 @@
             <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
             <tr ng-repeat="lesson in vm.lessons track by lesson.id">
                 <td><a ui-sref="lesson-fe-detail({id:lesson.id})">{{lesson.id}}</a></td>
+                <td>
+                    <a ui-sref="subject-fe-detail({id:lesson.subject.id})">
+                        {{lesson.subject.name}}
+                    </a>
+                </td>
                 <td>{{lesson.startLesson | date:'medium'}}</td>
                 <td>{{lesson.endLesson | date:'medium'}}</td>
                 <td>

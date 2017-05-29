@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
-                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <property name="now" value="now()" dbms="h2"/>
 
@@ -22,22 +20,26 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="start_lesson" type="timestamp">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
 
             <column name="end_lesson" type="timestamp">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
 
             <column name="teacher_id" type="bigint">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="subject_id" type="bigint">
+                <constraints nullable="false"/>
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="lesson" columnName="start_lesson" columnDataType="datetime"/>
         <dropDefaultValue tableName="lesson" columnName="end_lesson" columnDataType="datetime"/>
-        
+
         <createTable tableName="lesson_students">
             <column name="students_id" type="bigint">
                 <constraints nullable="false"/>
@@ -48,6 +50,6 @@
         </createTable>
 
         <addPrimaryKey columnNames="lessons_id, students_id" tableName="lesson_students"/>
-        
+
     </changeSet>
 </databaseChangeLog>

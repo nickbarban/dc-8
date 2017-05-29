@@ -1,4 +1,4 @@
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form subject="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -10,31 +10,31 @@
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.subject.id">
             <label for="id" data-translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
+            <input type="text" class="form-control" id="id" subject="id"
                    ng-model="vm.subject.id" readonly/>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="dancekvartalApp.subject.name" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                   ng-model="vm.subject.name"
+            <label class="control-label" data-translate="dancekvartalApp.subject.subject" for="field_name">Name</label>
+            <input type="text" class="form-control" subject="subject" id="field_name"
+                   ng-model="vm.subject.subject"
                    required/>
-            <div ng-show="editForm.name.$invalid">
+            <div ng-show="editForm.subject.$invalid">
                 <p class="help-block"
-                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                   ng-show="editForm.subject.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="dancekvartalApp.subject.description" for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
+            <input type="text" class="form-control" subject="description" id="field_description"
                    ng-model="vm.subject.description"
             />
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="dancekvartalApp.subject.active"
                    for="field_active">Active</label>
-            <input type="checkbox" name="active" id="field_active"
+            <input type="checkbox" subject="active" id="field_active"
                    ng-model="vm.subject.active"/>
             <div ng-show="editForm.active.$invalid">
                 <p class="help-block"
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="dancekvartalApp.subject.price" for="field_price">Price</label>
-            <input type="number" class="form-control" name="price" id="field_price"
+            <input type="number" class="form-control" subject="price" id="field_price"
                    ng-model="vm.subject.price"
                    required/>
             <div ng-show="editForm.price.$invalid">
@@ -62,7 +62,7 @@
 
         <div class="form-group">
             <label data-translate="dancekvartalApp.subject.teacher" for="field_teacher">Teacher</label>
-            <select class="form-control" id="field_teacher" name="teacher" ng-model="vm.subject.teacher"
+            <select class="form-control" id="field_teacher" subject="teacher" ng-model="vm.subject.teacher"
                     ng-options="teacher as teacher.person.firstname + ' ' + teacher.person.lastname for teacher in
                     vm.teachers | orderBy:'id'">
                 <option value=""></option>

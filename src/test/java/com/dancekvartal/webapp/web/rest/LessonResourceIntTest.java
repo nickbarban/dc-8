@@ -1,15 +1,14 @@
 package com.dancekvartal.webapp.web.rest;
 
 import com.dancekvartal.webapp.DancekvartalApp;
-
 import com.dancekvartal.webapp.domain.Lesson;
+import com.dancekvartal.webapp.domain.Subject;
 import com.dancekvartal.webapp.domain.Teacher;
 import com.dancekvartal.webapp.repository.LessonRepository;
 import com.dancekvartal.webapp.service.LessonService;
 import com.dancekvartal.webapp.service.dto.LessonDTO;
 import com.dancekvartal.webapp.service.mapper.LessonMapper;
 import com.dancekvartal.webapp.web.rest.errors.ExceptionTranslator;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,16 +25,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.time.Instant;
-import java.time.ZonedDateTime;
-import java.time.ZoneOffset;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static com.dancekvartal.webapp.web.rest.TestUtil.sameInstant;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Test class for the LessonResource REST controller.
@@ -89,7 +94,7 @@ public class LessonResourceIntTest {
 
     /**
      * Create an entity for this test.
-     *
+     * <p>
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
@@ -102,6 +107,10 @@ public class LessonResourceIntTest {
         em.persist(teacher);
         em.flush();
         lesson.setTeacher(teacher);
+        Subject subject = SubjectResourceIntTest.createEntity(em);
+        em.persist(subject);
+        em.flush();
+        lesson.setSubject(subject);
         return lesson;
     }
 
