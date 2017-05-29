@@ -45,7 +45,7 @@
                 <input id="field_birthday" type="text" class="form-control" name="birthday"
                        uib-datepicker-popup="{{dateformat}}" ng-model="vm.teacher.person.birthday"
                        is-open="vm.datePickerOpenStatus.birthday"
-                />
+                       required/>
                 <span class="input-group-btn">
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('birthday')"><i
                             class="glyphicon glyphicon-calendar"></i></button>

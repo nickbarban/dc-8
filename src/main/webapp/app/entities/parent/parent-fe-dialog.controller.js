@@ -12,6 +12,8 @@
 
         vm.parent = entity;
         vm.clear = clear;
+        vm.datePickerOpenStatus = {};
+        vm.openCalendar = openCalendar;
         vm.save = save;
         vm.users = User.query();
         vm.people = Person.query({filter: 'parent-is-null'});
@@ -50,6 +52,12 @@
 
         function onSaveError () {
             vm.isSaving = false;
+        }
+
+        vm.datePickerOpenStatus.birthday = false;
+
+        function openCalendar(date) {
+            vm.datePickerOpenStatus[date] = true;
         }
 
 
