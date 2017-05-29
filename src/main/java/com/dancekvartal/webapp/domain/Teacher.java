@@ -2,12 +2,22 @@ package com.dancekvartal.webapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Teacher.
@@ -31,7 +41,7 @@ public class Teacher implements Serializable {
     @JoinColumn(unique = true)
     private User user;
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     @NotNull
     @JoinColumn(unique = true)
     private Person person;
@@ -97,6 +107,7 @@ public class Teacher implements Serializable {
 
     public Teacher subjects(Set<Subject> subjects) {
         this.subjects = subjects;
+        subjects.forEach(subject -> subject.setTeacher(this));
         return this;
     }
 
@@ -113,6 +124,7 @@ public class Teacher implements Serializable {
     }
 
     public void setSubjects(Set<Subject> subjects) {
+        subjects.forEach(subject -> subject.setTeacher(this));
         this.subjects = subjects;
     }
 
@@ -163,9 +175,13 @@ public class Teacher implements Serializable {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-            "id=" + id +
-            ", active='" + active + "'" +
-            '}';
+        return "Teacher{"
+            + "id=" + id
+            + ", active=" + active
+            + ", user=" + user
+            + ", person=" + person
+            + ", subjects=" + subjects
+            + ", lessons=" + lessons
+            + '}';
     }
 }

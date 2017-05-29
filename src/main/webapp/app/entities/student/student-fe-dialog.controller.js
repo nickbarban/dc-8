@@ -12,7 +12,6 @@
                                        Person, Subject, Parent, Lesson) {
         var vm = this;
         vm.student = entity;
-        console.log("StudentFeDialogController entity.person: " + JSON.stringify(vm.student.person.birthday));
         vm.clear = clear;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
@@ -20,7 +19,7 @@
         vm.users = User.query();
         vm.people = Person.query({filter: 'student-is-null'});
         $q.all([vm.student.$promise, vm.people.$promise]).then(function () {
-            if (!vm.student.person.id) {
+            if (!vm.student.person || !vm.student.person.id) {
                 return $q.reject();
             }
             return Person.get({id: vm.student.person.id}).$promise;

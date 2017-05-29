@@ -14,12 +14,14 @@ import java.util.List;
 public interface TeacherMapper {
 
     @Mapping(source = "user.id", target = "userId")
+    @Mapping(target = "subjects", ignore = true)
     TeacherDTO teacherToTeacherDTO(Teacher teacher);
 
     List<TeacherDTO> teachersToTeacherDTOs(List<Teacher> teachers);
 
     @Mapping(source = "userId", target = "user")
     @Mapping(target = "lessons", ignore = true)
+    @Mapping(target = "subjects", ignore = true)
     Teacher teacherDTOToTeacher(TeacherDTO teacherDTO);
 
     List<Teacher> teacherDTOsToTeachers(List<TeacherDTO> teacherDTOs);

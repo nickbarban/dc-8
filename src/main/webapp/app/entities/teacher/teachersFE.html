@@ -55,8 +55,17 @@
                     <span>{{teacher.person.phone2}}</span>
                 </td>
                 <td class="nowrap">
-                    <div ng-repeat="subject in teacher.subjects">
-                        <span class="label label-info">{{ teacher.subject.name }}</span>
+                    <div ng-show="teacher.subjects.length == 0">
+                        <a ui-sref="subject-fe">
+                            ->Subjects
+                        </a>
+                    </div>
+                    <div ng-repeat="subject in teacher.subjects" >
+                        <a ui-sref="subject-fe-detail({id:subject.id})">
+                            <span class="label label-info">
+                                {{ subject.name }}
+                            </span>
+                        </a>
                     </div>
                 </td>
                 <td>

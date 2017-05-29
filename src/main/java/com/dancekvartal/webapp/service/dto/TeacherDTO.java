@@ -3,7 +3,10 @@ package com.dancekvartal.webapp.service.dto;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A DTO for the Teacher entity.
@@ -19,6 +22,8 @@ public class TeacherDTO implements Serializable {
 
     @NotNull
     private PersonDTO person;
+
+    private Set<SubjectDTO> subjects = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -50,6 +55,15 @@ public class TeacherDTO implements Serializable {
 
     public void setPerson(PersonDTO person) {
         this.person = person;
+    }
+
+    public Set<SubjectDTO> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Collection<SubjectDTO> subjects) {
+        this.subjects.clear();
+        this.subjects.addAll(subjects);
     }
 
     @Override

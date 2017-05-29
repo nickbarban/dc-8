@@ -25,6 +25,7 @@ public class StudentDTO implements Serializable {
     private PersonDTO person;
 
     @NotEmpty
+
     private Set<SubjectDTO> subjects = new HashSet<>();
 
     private ParentDTO parent;

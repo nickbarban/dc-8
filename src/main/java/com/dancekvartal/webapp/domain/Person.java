@@ -48,7 +48,7 @@ public class Person implements Serializable {
     private String address;
 
     @NotNull
-    @Column(name = "phone_1", nullable = false)
+    @Column(name = "phone_1", nullable = false, unique = true)
     private String phone1;
 
     @Column(name = "phone_2")

@@ -377,7 +377,16 @@ Fix error field display
     position: static;
 }
 
-/* jhipster-needle-scss-add-main JHipster will add new css style */
+/* ==========================================================================
+jhipster-needle-scss-add-main JHipster will add new css style
+ ==========================================================================*/
 .nowrap {
     white-space: nowrap;
+}
+
+.vertical-line {
+    width: 0px; /* Use only border style */
+    height: 100%;
+    float: left;
+    border: 1px inset; /* This is default border style for <hr> tag */
 }

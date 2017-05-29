@@ -1,26 +1,26 @@
 {
     "dancekvartalApp": {
-        "subject" : {
+        "subject": {
             "home": {
-                "title": "Subjects",
-                "createLabel": "Создать новый Subject",
-                "createOrEditLabel": "Создать или отредактировать Subject"
+                "title": "Предметы",
+                "createLabel": "Создать новый Предмет",
+                "createOrEditLabel": "Создать или отредактировать Предмет"
             },
-            "created": "Новый Subject создан с идентификатором {{ param }}",
-            "updated": "Subject обновлен с идентификатором {{ param }}",
-            "deleted": "Subject удален с идентификатором {{ param }}",
+            "created": "Новый Предмет создан с идентификатором {{ param }}",
+            "updated": "Предмет обновлен с идентификатором {{ param }}",
+            "deleted": "Предмет удален с идентификатором {{ param }}",
             "delete": {
-                "question": "Вы уверены что хотите удалить Subject {{ id }}?"
+                "question": "Вы уверены что хотите удалить Предмет {{ id }}?"
             },
             "detail": {
-                "title": "Subject"
+                "title": "Предмет"
             },
-            "name": "Name",
-            "description": "Description",
-            "active": "Active",
-            "price": "Price",
-            "teacher": "Teacher",
-            "students": "Students"
+            "name": "Наименование",
+            "description": "Описание",
+            "active": "Активен",
+            "price": "Цена",
+            "teacher": "Учитель",
+            "students": "Ученики"
         }
     }
 }

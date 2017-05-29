@@ -1,10 +1,9 @@
 package com.dancekvartal.webapp.service.dto;
 
-import java.time.LocalDate;
-import javax.validation.constraints.*;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -42,6 +41,7 @@ public class PersonDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getFirstname() {
         return firstname;
     }
@@ -49,6 +49,7 @@ public class PersonDTO implements Serializable {
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
+
     public String getLastname() {
         return lastname;
     }
@@ -56,6 +57,7 @@ public class PersonDTO implements Serializable {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
     public LocalDate getBirthday() {
         return birthday;
     }
@@ -63,6 +65,7 @@ public class PersonDTO implements Serializable {
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
+
     public String getAddress() {
         return address;
     }
@@ -70,6 +73,7 @@ public class PersonDTO implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getPhone1() {
         return phone1;
     }
@@ -77,6 +81,7 @@ public class PersonDTO implements Serializable {
     public void setPhone1(String phone1) {
         this.phone1 = phone1;
     }
+
     public String getPhone2() {
         return phone2;
     }
@@ -84,6 +89,7 @@ public class PersonDTO implements Serializable {
     public void setPhone2(String phone2) {
         this.phone2 = phone2;
     }
+
     public String getEmail() {
         return email;
     }
@@ -91,6 +97,7 @@ public class PersonDTO implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPhotoUrl() {
         return photoUrl;
     }
@@ -110,7 +117,9 @@ public class PersonDTO implements Serializable {
 
         PersonDTO personDTO = (PersonDTO) o;
 
-        if ( ! Objects.equals(id, personDTO.id)) { return false; }
+        if (!Objects.equals(id, personDTO.id)) {
+            return false;
+        }
 
         return true;
     }

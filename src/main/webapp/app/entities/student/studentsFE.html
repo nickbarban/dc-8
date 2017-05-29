@@ -70,14 +70,12 @@
                 </td>
                 <td class="nowrap">
                     <div ng-repeat="subject in student.subjects">
-                        <!--<span class="label label-info">{{ student.subject.name }}</span>-->
-                        <a ui-sref="subject-fe-detail({id:student.subject.id})">
-                            {{subject.name}}
+                        <a ui-sref="subject-fe-detail({id:subject.id})">
+                            <span class="label label-info">
+                                {{subject.name}}
+                            </span>
                         </a>
                     </div>
-                    <!--<a ui-sref="subject-fe-detail({id:student.subject.id})">
-                        {{student.parent.person.firstname}} {{student.parent.person.lastname}}
-                    </a>-->
                 </td>
                 <td>
                     {{student.userId}}

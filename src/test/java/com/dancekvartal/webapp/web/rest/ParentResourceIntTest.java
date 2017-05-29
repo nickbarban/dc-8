@@ -1,7 +1,6 @@
 package com.dancekvartal.webapp.web.rest;
 
 import com.dancekvartal.webapp.DancekvartalApp;
-
 import com.dancekvartal.webapp.domain.Parent;
 import com.dancekvartal.webapp.domain.Person;
 import com.dancekvartal.webapp.domain.Student;
@@ -10,7 +9,7 @@ import com.dancekvartal.webapp.service.ParentService;
 import com.dancekvartal.webapp.service.dto.ParentDTO;
 import com.dancekvartal.webapp.service.mapper.ParentMapper;
 import com.dancekvartal.webapp.web.rest.errors.ExceptionTranslator;
-
+import org.fluttercode.datafactory.impl.DataFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,8 +30,13 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Test class for the ParentResource REST controller.
@@ -82,7 +87,7 @@ public class ParentResourceIntTest {
 
     /**
      * Create an entity for this test.
-     *
+     * <p>
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
@@ -91,8 +96,7 @@ public class ParentResourceIntTest {
             .active(DEFAULT_ACTIVE);
         // Add required entity
         Person person = PersonResourceIntTest.createEntity(em);
-        em.persist(person);
-        em.flush();
+        person.setPhone1(new DataFactory().getNumberText(12));
         parent.setPerson(person);
         // Add required entity
         Student children = StudentResourceIntTest.createEntity(em);
@@ -114,10 +118,11 @@ public class ParentResourceIntTest {
 
         // Create the Parent
         ParentDTO parentDTO = parentMapper.parentToParentDTO(parent);
-        restParentMockMvc.perform(post("/api/parents")
+        ResultActions resultActions = restParentMockMvc.perform(post("/api/parents")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(parentDTO)))
             .andExpect(status().isCreated());
+
 
         // Validate the Parent in the database
         List<Parent> parentList = parentRepository.findAll();

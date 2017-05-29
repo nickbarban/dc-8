@@ -109,11 +109,13 @@
                    ng-model="vm.teacher.person.photoUrl"
             />
         </div>
-        <div class="form-group">
+        <div class="form-group" ng-show="vm.teacher.id">
             <label data-translate="global.field.subjects" for="field_subjects">Subjects</label>
-            <select class="form-control" id="field_subjects" multiple name="subjects" ng-model="vm.teacher.subjects"
-                    ng-options="subject as subject.name for subject in vm.subjects track by subject.id"
-                    required></select>
+            <div class="nowrap" id="field_subjects">
+                <span ng-repeat="subject in vm.teacher.subjects">
+                    <div class="label label-info">{{ subject.name }}</div>
+                </span>
+            </div>
         </div>
         <div ng-show="editForm.subjects.$invalid">
             <p class="help-block"

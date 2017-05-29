@@ -1,4 +1,3 @@
-
 <div>
     <h2><span data-translate="dancekvartalApp.subject.detail.title">Subject</span> {{vm.subject.id}}</h2>
     <hr>
@@ -22,7 +21,9 @@
         </dd>
         <dt><span data-translate="dancekvartalApp.subject.teacher">Teacher</span></dt>
         <dd>
-            <a ui-sref="teacher-fe-detail({id:vm.subject.teacherId})">{{vm.subject.teacherId}}</a>
+            <a ui-sref="teacher-fe-detail({id:vm.subject.teacher.id})">
+                {{vm.subject.teacher.person.firstname}} {{vm.subject.teacher.person.lastname}}
+            </a>
         </dd>
     </dl>
 
