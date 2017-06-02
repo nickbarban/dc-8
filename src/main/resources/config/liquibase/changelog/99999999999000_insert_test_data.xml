@@ -40,5 +40,20 @@
                   separator=";"
                   tableName="subject">
         </loadData>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/lessons.csv"
+                  separator=";"
+                  tableName="lesson">
+        </loadData>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/students_subjects.csv"
+                  separator=";"
+                  tableName="student_subjects">
+        </loadData>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/lessons_students.csv"
+                  separator=";"
+                  tableName="lesson_students">
+        </loadData>
     </changeSet>
 </databaseChangeLog>
