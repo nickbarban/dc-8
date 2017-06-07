@@ -19,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -189,16 +190,20 @@ public class PayResourceIntTest {
     @Test
     @Transactional
     public void updatePay() throws Exception {
+
         // Initialize the database
         payRepository.saveAndFlush(pay);
         int databaseSizeBeforeUpdate = payRepository.findAll().size();
+
 
         // Update the pay
         Pay updatedPay = payRepository.findOne(pay.getId());
         updatedPay
             .date(UPDATED_DATE)
             .sum(UPDATED_SUM);
+        System.out.println(pay);
         PayDTO payDTO = payMapper.payToPayDTO(updatedPay);
+        System.out.println(payDTO);
 
         restPayMockMvc.perform(put("/api/pays")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)

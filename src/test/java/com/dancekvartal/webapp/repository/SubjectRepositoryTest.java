@@ -2,6 +2,7 @@ package com.dancekvartal.webapp.repository;
 
 import com.dancekvartal.webapp.DancekvartalApp;
 import com.dancekvartal.webapp.domain.Subject;
+import com.dancekvartal.webapp.domain.Teacher;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +25,7 @@ public class SubjectRepositoryTest {
 
     private static final Long EXPECTED_TEACHER_ID = 1L;
     private static final int EXPECTED_SUBJECTS_SIZE = 2;
+    private static final Long EXPECTED_SUBJECT_ID = 2L;
 
     @Autowired
     private SubjectRepository sut;
@@ -32,13 +34,17 @@ public class SubjectRepositoryTest {
 
     @Test
     public void shouldReturnSubjectForSpecifiedTeacher() {
+        Teacher teacher = teacherRepository.findOne(EXPECTED_TEACHER_ID);
+        Subject subject = sut.findOne(EXPECTED_SUBJECT_ID);
+        subject.setTeacher(teacher);
+        sut.save(subject);
 
         List<Subject> fetched = sut.findByTeacherId(EXPECTED_TEACHER_ID);
 
         Assertions.assertThat(fetched)
             .isNotNull().isNotEmpty()
             .hasSize(EXPECTED_SUBJECTS_SIZE)
-            .allMatch(subject -> subject.getTeacher() != null && subject.getTeacher().getId().equals(EXPECTED_TEACHER_ID));
+            .allMatch(s -> s.getTeacher() != null && subject.getTeacher().getId().equals(EXPECTED_TEACHER_ID));
     }
 
 }

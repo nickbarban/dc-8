@@ -55,5 +55,10 @@
                   separator=";"
                   tableName="lesson_students">
         </loadData>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/pays.csv"
+                  separator=";"
+                  tableName="pay">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

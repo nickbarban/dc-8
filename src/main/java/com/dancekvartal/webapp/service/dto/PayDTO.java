@@ -1,11 +1,8 @@
 package com.dancekvartal.webapp.service.dto;
 
-import java.time.LocalDate;
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -19,7 +16,7 @@ public class PayDTO implements Serializable {
 
     private BigDecimal sum;
 
-    private Long personId;
+    private PersonDTO person;
 
     public Long getId() {
         return id;
@@ -28,6 +25,7 @@ public class PayDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public LocalDate getDate() {
         return date;
     }
@@ -35,6 +33,7 @@ public class PayDTO implements Serializable {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
     public BigDecimal getSum() {
         return sum;
     }
@@ -43,12 +42,12 @@ public class PayDTO implements Serializable {
         this.sum = sum;
     }
 
-    public Long getPersonId() {
-        return personId;
+    public PersonDTO getPerson() {
+        return person;
     }
 
-    public void setPersonId(Long personId) {
-        this.personId = personId;
+    public void setPerson(PersonDTO person) {
+        this.person = person;
     }
 
     @Override
@@ -62,7 +61,9 @@ public class PayDTO implements Serializable {
 
         PayDTO payDTO = (PayDTO) o;
 
-        if ( ! Objects.equals(id, payDTO.id)) { return false; }
+        if (!Objects.equals(id, payDTO.id)) {
+            return false;
+        }
 
         return true;
     }
@@ -78,6 +79,7 @@ public class PayDTO implements Serializable {
             "id=" + id +
             ", date='" + date + "'" +
             ", sum='" + sum + "'" +
+            ", person='" + person.toString() + "'" +
             '}';
     }
 }

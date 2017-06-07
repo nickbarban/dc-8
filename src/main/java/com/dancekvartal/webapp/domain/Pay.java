@@ -105,6 +105,7 @@ public class Pay implements Serializable {
             "id=" + id +
             ", date='" + date + "'" +
             ", sum='" + sum + "'" +
+            ", person='" + person + "'" +
             '}';
     }
 }
